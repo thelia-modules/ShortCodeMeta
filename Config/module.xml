@@ -30,7 +30,7 @@
     <type>classic</type>
 
     <required>
-        <module version="~1.0.0">ShortCode</module>
+        <module>ShortCode</module>
     </required>
 
     <thelia>2.3.0</thelia>
