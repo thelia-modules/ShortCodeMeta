@@ -33,7 +33,7 @@ class ShortCodeMeta extends BaseModule
         return self::$$name;
     }
 
-    public function postActivation(ConnectionInterface $con = null)
+    public function postActivation(ConnectionInterface $con = null): void
     {
         ShortCode::createNewShortCodeIfNotExist(self::EMPTY_PAGE_META_SHORT_CODE, self::EMPTY_PAGE_META_SHORT_CODE);
         ShortCode::createNewShortCodeIfNotExist(self::PAGINATION_META_SHORT_CODE, self::PAGINATION_META_SHORT_CODE);
