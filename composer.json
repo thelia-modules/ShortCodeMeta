@@ -4,7 +4,7 @@
   "type": "thelia-module",
   "require": {
     "thelia/installer": "~1.1",
-    "thelia/short-code-module": "dev-main"
+    "thelia/short-code-module": "dev-twig"
   },
   "extra": {
     "installer-name": "ShortCodeMeta"
