@@ -10,7 +10,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ShortCodeListener implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
           ShortCodeMeta::EMPTY_PAGE_META_SHORT_CODE => [['checkEmptyPage', 128]],

@@ -10,7 +10,7 @@ use TheliaSmarty\Template\SmartyPluginDescriptor;
 
 class ShortCodeMetaPlugin extends AbstractSmartyPlugin
 {
-    public function getPluginDescriptors()
+    public function getPluginDescriptors(): array
     {
         return [
             new SmartyPluginDescriptor('function', 'set_empty_page_meta', $this, 'setEmptyPageMeta'),
