@@ -26,10 +26,6 @@
         <service id="shortcodemeta.shortcode.listener" class="ShortCodeMeta\EventListener\ShortCodeListener">
             <tag name="kernel.event_subscriber"/>
         </service>
-        <service id="shortcodemeta.plugin" class="ShortCodeMeta\Smarty\Plugins\ShortCodeMetaPlugin">
-            <argument type="service" id="service_container" />
-            <tag name="thelia.parser.register_plugin"/>
-        </service>
     </services>
 
     <hooks>
