@@ -14,7 +14,10 @@ namespace ShortCodeMeta;
 
 use Propel\Runtime\Connection\ConnectionInterface;
 use ShortCode\ShortCode;
+use ShortCodeMeta\Smarty\Plugins\ShortCodeMetaPlugin;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 use Thelia\Module\BaseModule;
+use TheliaSmarty\Template\AbstractSmartyPlugin;
 
 class ShortCodeMeta extends BaseModule
 {
@@ -37,5 +40,14 @@ class ShortCodeMeta extends BaseModule
     {
         ShortCode::createNewShortCodeIfNotExist(self::EMPTY_PAGE_META_SHORT_CODE, self::EMPTY_PAGE_META_SHORT_CODE);
         ShortCode::createNewShortCodeIfNotExist(self::PAGINATION_META_SHORT_CODE, self::PAGINATION_META_SHORT_CODE);
+    }
+
+    public static function configureServices(ServicesConfigurator $servicesConfigurator): void
+    {
+        // The Smarty plugin is an optional integration: it needs TheliaSmarty, which Thelia 3 no longer ships by default.
+        if (class_exists(AbstractSmartyPlugin::class)) {
+            $servicesConfigurator->set('shortcodemeta.plugin', ShortCodeMetaPlugin::class)
+                ->tag('thelia.parser.register_plugin');
+        }
     }
 }
